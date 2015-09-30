@@ -34,6 +34,10 @@ core@c35 ~/cluster.coreos.toolbox $ docker run -it epflsti/toolbox /bin/zsh
 ╰─$
 ```
 
+![sti-it-cluster-coreos-toolbox.png](https://raw.githubusercontent.com/epfl-sti/cluster.coreos.toolbox/master/sti-it-cluster-coreos-toolbox.png)
+
+[Screenshot: sti-it-cluster-coreos-toolbox.png](https://raw.githubusercontent.com/epfl-sti/cluster.coreos.toolbox/master/sti-it-cluster-coreos-toolbox.png)
+
 ## Content
 * arping
 * ca-certificates
