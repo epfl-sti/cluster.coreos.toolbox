@@ -1,2 +1,3 @@
 # cluster.coreos.toolbox
-Personalize Toolbox for CoreOS
+
+Our special toolbox to use in our cloud-init file when installing CoreOS.
