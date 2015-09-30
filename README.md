@@ -3,7 +3,7 @@
 Our special toolbox to use in our cloud-init file when installing CoreOS.
 
 ## Usage
-`docker run -it epflsti/toolbox /bin/zsh`
+`docker run -it epflsti/cluster.coreos.toolbox /bin/zsh`
 
 ## Output
 ```
