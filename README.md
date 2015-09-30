@@ -24,14 +24,14 @@ core@c35 ~/cluster.coreos.toolbox $ docker run -it epflsti/toolbox /bin/zsh
 
              System information as of: Wed Sep 30 21:41:48 UTC 2015
 
-								╔═════════╗
-	System load:	0.28	Memory usage:	88.3%		║ STI-IT  ║
-	Usage on /:	8%	Swap usage:	0		║ toolbox ║
-	Local users:	0	Updates:	0		║   Roxxx ║
-								╚═════════╝
+                                                                ╔═════════╗
+        System load:    0.28    Memory usage:   88.3%           ║ STI-IT  ║
+        Usage on /:     8%      Swap usage:     0               ║ toolbox ║
+        Local users:    0       Updates:        0               ║   Roxxx ║
+                                                                ╚═════════╝
 
 ╭─root@7c55b9317086  ~  
-╰─
+╰─$
 ```
 
 ## Content
