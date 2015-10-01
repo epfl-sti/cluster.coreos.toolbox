@@ -75,6 +75,7 @@ RUN chmod +x motd
 # Get a "docker" PS1 prompt
 RUN echo 'export "LANG=C.UTF-8"' >> /root/.bashrc 
 RUN echo "PS1='⚠ DOCKER! \u@\h:\w\$ '" >> /root/.bashrc
+RUN echo ". motd" >> /root/.bashrc
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
