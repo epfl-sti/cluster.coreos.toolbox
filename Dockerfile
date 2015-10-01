@@ -26,29 +26,40 @@ RUN apt-get -q update && apt-get -qy upgrade
 
 # Install STIIT tools
 RUN apt-get install -y --no-install-recommends \
-        file     \
-        git      \
-        less     \
-        man-db   \
-        manpages \
-        vim      \
-        zsh      \
-        htop     \
-        strace   \ 
-        ltrace   \
-        sysstat  \
-        arping   \
-        curl     \
-        ca-certificates \
-        ethtool  \
-        tcpdump  \
-        iproute2 \
-        nmap     \
-        nicstat  \
-        net-tools \
-        ipmitool \
-        dmidecode \
-        wget 
+    arping \
+    ca-certificates \
+    curl \
+    dmidecode \
+    ethtool \
+    facter \
+    file \
+    git \
+    htop \
+    httpry \
+    iftop \
+    iperf \
+    ipmitool \
+    iproute2 \
+    less \
+    lsof \
+    ltrace \
+    man-db \
+    manpages \
+    mtr \
+    net-tools \
+    nicstat \
+    nmap \
+    ntop \
+    rsync \
+    sntop \
+    strace \
+    sysstat \
+    tcpdump \
+    tcptraceroute \
+    vim \
+    vnstat \
+    wget \
+    zsh
 
 # Oh-My-ZSH / zsh configuration
 WORKDIR /root/
