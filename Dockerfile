@@ -49,7 +49,6 @@ RUN apt-get install -y --no-install-recommends \
     net-tools \
     nicstat \
     nmap \
-    ntop \
     rsync \
     sntop \
     strace \

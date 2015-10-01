@@ -59,7 +59,6 @@ core@c35 ~/cluster.coreos.toolbox $ docker run -it epflsti/toolbox /bin/zsh
 * net-tools
 * nicstat
 * nmap
-* ntop
 * rsync
 * sntop
 * strace
