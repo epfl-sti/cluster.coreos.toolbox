@@ -1,0 +1,22 @@
+
+* [No really. Use Zsh](http://fendrich.se/blog/2012/09/28/no/)
+* [toolbox on dockerhub](https://hub.docker.com/r/epflsti/cluster.coreos.toolbox/builds/)
+* [Tools to add](http://serverfault.com/questions/21048/what-tools-should-every-sysadmin-use-that-no-ones-heard-of)
+* Create a zshhistory file ?
+```
+fleetctl list-units
+fleetctl list-machines
+etcdctl member list
+etcdctl cluster-health
+journalctl -xe
+systemctl list-unit-files
+systemctl cat puppet.service
+```
+* Create alias ?
+```
+fleetsort() {
+  fleetctl list-machines | sort -n -t . -k 7,7
+  TOTAL=$(fleetctl list-machines -no-legend | wc -l)
+  echo -e "\n         Congratulations officer, your fleet have $TOTAL members !"
+}
+```
