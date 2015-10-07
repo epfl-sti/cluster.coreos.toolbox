@@ -18,6 +18,8 @@ ENV LC_ALL en_US.UTF-8
 
 # Comment src sources
 RUN sed -i "s/^deb\-src/\#deb\-src/" /etc/apt/sources.list
+# Use ch mirror
+RUN sed -i "s/archive.ubuntu.com/ch.archive.ubuntu.com/g" /etc/apt/sources.list
 # and add multiverse package in case we need something else
 RUN apt-add-repository multiverse
 
@@ -27,6 +29,7 @@ RUN apt-get -q update && apt-get -qy upgrade
 # Install STIIT tools
 RUN apt-get install -y --no-install-recommends \
     arping \
+    build-essential \
     ca-certificates \
     curl \
     dmidecode \
