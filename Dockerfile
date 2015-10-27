@@ -58,6 +58,7 @@ RUN apt-get install -y --no-install-recommends \
     sysstat \
     tcpdump \
     tcptraceroute \
+    telnet \
     vim \
     vnstat \
     wget \
