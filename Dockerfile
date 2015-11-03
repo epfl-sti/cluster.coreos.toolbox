@@ -52,6 +52,8 @@ RUN apt-get install -y --no-install-recommends \
     net-tools \
     nicstat \
     nmap \
+    nodejs \
+    npm \
     rsync \
     sntop \
     strace \
