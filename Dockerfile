@@ -4,6 +4,10 @@
 # https://github.com/phusion/baseimage-docker/blob/master/Changelog.md
 # for a list of version numbers.
 
+# In case you want quickdev with the toolbox :
+# docker pull epflsti/cluster.coreos.toolbox
+# docker run --privileged -v $PWD:/cwd -it epflsti/cluster.coreos.toolbox /bin/bash
+
 FROM phusion/baseimage:0.9.17
 MAINTAINER STIIT Dev <stiitdev@groupes.epfl.ch>
 
