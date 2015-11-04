@@ -2,6 +2,8 @@
 
 Our special toolbox to use in our cloud-init file when installing CoreOS.
 
+This github repository triggers automatic builds on [https://hub.docker.com/r/epflsti/cluster.coreos.toolbox/](hub.docker.com).
+
 ## Usage
 `docker run -it epflsti/cluster.coreos.toolbox /bin/zsh`
 
