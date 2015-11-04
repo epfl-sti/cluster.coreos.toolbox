@@ -47,6 +47,7 @@ RUN apt-get install -y --no-install-recommends \
     iperf \
     ipmitool \
     iproute2 \
+    jq \
     less \
     lsof \
     ltrace \
