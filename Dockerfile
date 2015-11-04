@@ -30,6 +30,12 @@ RUN apt-add-repository multiverse
 # Ubuntu update + upgrades
 RUN apt-get -q update && apt-get -qy upgrade 
 
+# Latest node version ('cause you know...)
+#   https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager#debian-and-ubuntu-based-linux-distributions
+# Hopefully phusion/baseimage come with curl
+# ... then nodejs installation can be ran with apt-get install
+RUN curl --silent --location https://deb.nodesource.com/setup_0.12 | bash 
+
 # Install STIIT tools
 RUN apt-get install -y --no-install-recommends \
     arping \
@@ -58,7 +64,6 @@ RUN apt-get install -y --no-install-recommends \
     nicstat \
     nmap \
     nodejs \
-    npm \
     rsync \
     sntop \
     strace \
@@ -70,6 +75,9 @@ RUN apt-get install -y --no-install-recommends \
     vnstat \
     wget \
     zsh
+
+# Node again nodejs <-> node
+#RUN ln -s /usr/bin/nodejs /usr/bin/node
 
 # Oh-My-ZSH / zsh configuration
 WORKDIR /root/
