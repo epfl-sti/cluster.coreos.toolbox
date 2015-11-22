@@ -43,6 +43,7 @@ RUN apt-get install -y --no-install-recommends \
     ca-certificates \
     curl \
     dmidecode \
+    docker.io \
     ethtool \
     facter \
     file \
@@ -82,8 +83,10 @@ RUN apt-get install -y --no-install-recommends \
 # Node again nodejs <-> node
 #RUN ln -s /usr/bin/nodejs /usr/bin/node
 
-# Oh-My-ZSH / zsh configuration
 WORKDIR /root/
+COPY bash_profile .bash_profile
+
+# Oh-My-ZSH / zsh configuration
 RUN git clone git://github.com/robbyrussell/oh-my-zsh.git /root/.oh-my-zsh 
 COPY zshrc .zshrc
 #RUN mkdir -p /root/.zsh/completion/
