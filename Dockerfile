@@ -64,10 +64,13 @@ RUN apt-get install -y --no-install-recommends \
     nicstat \
     nmap \
     nodejs \
+    openssl \
     rsync \
     sntop \
     strace \
+    stunnel \
     sysstat \
+    telnet \
     tcpdump \
     tcptraceroute \
     telnet \
