@@ -41,36 +41,7 @@ core@c35 ~/cluster.coreos.toolbox $ docker run -it epflsti/toolbox /bin/zsh
 [Screenshot: sti-it-cluster-coreos-toolbox.png](https://raw.githubusercontent.com/epfl-sti/cluster.coreos.toolbox/master/sti-it-cluster-coreos-toolbox.png)
 
 ## Content
-* dmidecode
-* ethtool
-* facter
-* file
-* git
-* htop
-* httpry
-* iftop
-* iperf
-* ipmitool
-* iproute2
-* less
-* lsof
-* ltrace
-* man-db
-* manpages
-* mtr
-* net-tools
-* nicstat
-* nmap
-* rsync
-* sntop
-* strace
-* sysstat
-* tcpdump
-* tcptraceroute
-* vim
-* vnstat
-* wget
-* zsh
+Installed packages are listed in the [Dockerfile](https://github.com/epfl-sti/cluster.coreos.toolbox/blob/master/Dockerfile).
 
 ## Cloud-init example
 ```
