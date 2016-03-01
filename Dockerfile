@@ -8,7 +8,7 @@
 # docker pull epflsti/cluster.coreos.toolbox
 # docker run --privileged -v $PWD:/cwd -it epflsti/cluster.coreos.toolbox /bin/bash
 
-FROM phusion/baseimage:0.9.17
+FROM phusion/baseimage:latest
 MAINTAINER STIIT Dev <stiitdev@groupes.epfl.ch>
 
 # Use baseimage-docker's init system.
@@ -28,13 +28,13 @@ RUN sed -i "s/archive.ubuntu.com/ch.archive.ubuntu.com/g" /etc/apt/sources.list
 RUN apt-add-repository multiverse
 
 # Ubuntu update + upgrades
-RUN apt-get -q update && apt-get -qy upgrade 
+RUN apt-get -q update && apt-get -qy upgrade
 
 # Latest node version ('cause you know...)
 #   https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager#debian-and-ubuntu-based-linux-distributions
-# Hopefully phusion/baseimage come with curl
+# Hopefully phusion/baseimage comes with curl
 # ... then nodejs installation can be ran with apt-get install
-RUN curl --silent --location https://deb.nodesource.com/setup_0.12 | bash 
+RUN curl --silent --location https://deb.nodesource.com/setup_5.x | bash 
 
 # Install STIIT tools
 RUN apt-get install -y --no-install-recommends \
@@ -87,7 +87,7 @@ WORKDIR /root/
 COPY bash_profile .bash_profile
 
 # Oh-My-ZSH / zsh configuration
-RUN git clone git://github.com/robbyrussell/oh-my-zsh.git /root/.oh-my-zsh 
+RUN git clone git://github.com/robbyrussell/oh-my-zsh.git /root/.oh-my-zsh
 COPY zshrc .zshrc
 #RUN mkdir -p /root/.zsh/completion/
 #RUN curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose --version | awk 'NR==1{print $NF}')/contrib/completion/zsh/_docker-compose > /root/.zsh/completion/_docker-compose
@@ -98,10 +98,10 @@ COPY motd motd
 RUN chmod +x motd
 
 # Get a "docker" PS1 prompt
-RUN echo 'export "LANG=C.UTF-8"' >> /root/.bashrc 
+RUN echo 'export "LANG=C.UTF-8"' >> /root/.bashrc
 RUN echo "PS1='⚠ DOCKER! \u@\h:\w\$ '" >> /root/.bashrc
 RUN echo ". motd" >> /root/.bashrc
 
 # Clean up APT when done.
-RUN apt-get clean 
+RUN apt-get clean
 # RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
