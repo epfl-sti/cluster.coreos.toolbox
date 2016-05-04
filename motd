@@ -28,13 +28,12 @@ cat <<STIITTOOLBOX
 .      \___ \ | |  | |_____| |  | |     | |/ _ \ / _ \| | '_ \ / _ \ \/ /      .
 .       ___) || |  | |_____| |  | |     | | (_) | (_) | | |_) | (_) >  <       .
 .      |____/ |_| |___|   |___| |_|     |_|\___/ \___/|_|_.__/ \___/_/\_\\      .
-.                                       v0.5   <stiitdev@groupes.epfl.ch>      .
+.                                       v0.6   <stiitdev@groupes.epfl.ch>      .
 .                      https://github.com/epfl-sti/cluster.coreos.toolbox      .
 .                 https://hub.docker.com/r/epflsti/cluster.coreos.toolbox      .
 --------------------------------------------------------------------------------
 STIITTOOLBOX
-
-echo "${CYAN}                   Note: this toolbox is poshed up with ZSH${NORMAL}"
+echo "${CYAN}                   Note: this toolbox is poshed up by STI-IT${NORMAL}"
 
 [ -r /etc/lsb-release ] && . /etc/lsb-release
 if [ -z "$DISTRIB_DESCRIPTION" ] && [ -x /usr/bin/lsb_release ]; then
@@ -43,24 +42,7 @@ if [ -z "$DISTRIB_DESCRIPTION" ] && [ -x /usr/bin/lsb_release ]; then
 fi
 
 printf "\n"
-printf "    Welcome to %s running on %s (kernel %s).\n" "${BLUE}$(hostname)${NORMAL}" "$DISTRIB_DESCRIPTION" "$(uname -r)"
+printf " Welcome to %s running on %s (kernel %s)\n" "${BLUE}$(hostname)${NORMAL}" "$DISTRIB_DESCRIPTION" "$(uname -r)"
 printf "\n"
 
-## SysInfo
-date=`date`
-load=`cat /proc/loadavg | awk '{print $1}'`
-root_usage=`df -h / | awk '/\// {print $(NF-1)}'`
-memory_usage=`free -m | awk '/Mem/ { printf("%3.1f%%", $3/$2*100) }'`
-swap_usage=0 # `free -m | awk '/Swap/ { printf("%3.1f%%", $3/$2*100) }'`
-users=`users | wc -w`
-update=`apt-get -s -o Debug::NoLocking=true upgrade | grep ^Inst | wc -l`
-
-echo "             System information as of: $date"
-echo
-printf "\t\t\t\t\t\t\t\t${REVERSE}${MAGENTA}\342\225\224\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\227${NORMAL}\n"
-printf "\tSystem load:\t%s\tMemory usage:\t%s\t\t${REVERSE}${MAGENTA}\342\225\221 STI-IT  \342\225\221${NORMAL}\n" $load $memory_usage
-printf "\tUsage on /:\t%s\tSwap usage:\t%s\t\t${REVERSE}${MAGENTA}\342\225\221 toolbox \342\225\221${NORMAL}\n" $root_usage $swap_usage
-printf "\tLocal users:\t%s\tUpdates:\t%s\t\t${REVERSE}${MAGENTA}\342\225\221   v 0.5 \342\225\221${NORMAL}\n" $users $update
-printf "\t\t\t\t\t\t\t\t${REVERSE}${MAGENTA}\342\225\232\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\235${NORMAL}\n"
-echo
 [ -f /etc/motd.tail ] && cat /etc/motd.tail || true
