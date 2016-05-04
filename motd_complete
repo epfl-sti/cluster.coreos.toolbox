@@ -1,0 +1,66 @@
+#!/bin/bash
+# Idea: https://nickcharlton.net/posts/debian-ubuntu-dynamic-motd.html - thanks !
+
+# http://stackoverflow.com/questions/4332478/read-the-current-text-color-in-a-xterm/4332530#4332530
+# fancy text information {{{
+BLACK=$(tput setaf 0)
+RED=$(tput setaf 1)
+GREEN=$(tput setaf 2)
+YELLOW=$(tput setaf 3)
+LIME_YELLOW=$(tput setaf 190)
+POWDER_BLUE=$(tput setaf 153)
+BLUE=$(tput setaf 4)
+MAGENTA=$(tput setaf 5)
+CYAN=$(tput setaf 6)
+WHITE=$(tput setaf 7)
+BRIGHT=$(tput bold)
+NORMAL=$(tput sgr0)
+BLINK=$(tput blink)
+REVERSE=$(tput smso)
+UNDERLINE=$(tput smul)
+# }}}
+
+
+cat <<STIITTOOLBOX
+--------------------------------------------------------------------------------
+.       ____ _____ ___     ___ _____   _____           _ _                     .
+.      / ___|_   _|_ _|   |_ _|_   _| |_   _|__   ___ | | |__   _____  __      .
+.      \___ \ | |  | |_____| |  | |     | |/ _ \ / _ \| | '_ \ / _ \ \/ /      .
+.       ___) || |  | |_____| |  | |     | | (_) | (_) | | |_) | (_) >  <       .
+.      |____/ |_| |___|   |___| |_|     |_|\___/ \___/|_|_.__/ \___/_/\_\\      .
+.                                       v0.5   <stiitdev@groupes.epfl.ch>      .
+.                      https://github.com/epfl-sti/cluster.coreos.toolbox      .
+.                 https://hub.docker.com/r/epflsti/cluster.coreos.toolbox      .
+--------------------------------------------------------------------------------
+STIITTOOLBOX
+
+echo "${CYAN}                   Note: this toolbox is poshed up with ZSH${NORMAL}"
+
+[ -r /etc/lsb-release ] && . /etc/lsb-release
+if [ -z "$DISTRIB_DESCRIPTION" ] && [ -x /usr/bin/lsb_release ]; then
+        # Fall back to using the very slow lsb_release utility
+        DISTRIB_DESCRIPTION=$(lsb_release -s -d)
+fi
+
+printf "\n"
+printf "    Welcome to %s running on %s (kernel %s).\n" "${BLUE}$(hostname)${NORMAL}" "$DISTRIB_DESCRIPTION" "$(uname -r)"
+printf "\n"
+
+## SysInfo
+date=`date`
+load=`cat /proc/loadavg | awk '{print $1}'`
+root_usage=`df -h / | awk '/\// {print $(NF-1)}'`
+memory_usage=`free -m | awk '/Mem/ { printf("%3.1f%%", $3/$2*100) }'`
+swap_usage=0 # `free -m | awk '/Swap/ { printf("%3.1f%%", $3/$2*100) }'`
+users=`users | wc -w`
+update=`apt-get -s -o Debug::NoLocking=true upgrade | grep ^Inst | wc -l`
+
+echo "             System information as of: $date"
+echo
+printf "\t\t\t\t\t\t\t\t${REVERSE}${MAGENTA}\342\225\224\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\227${NORMAL}\n"
+printf "\tSystem load:\t%s\tMemory usage:\t%s\t\t${REVERSE}${MAGENTA}\342\225\221 STI-IT  \342\225\221${NORMAL}\n" $load $memory_usage
+printf "\tUsage on /:\t%s\tSwap usage:\t%s\t\t${REVERSE}${MAGENTA}\342\225\221 toolbox \342\225\221${NORMAL}\n" $root_usage $swap_usage
+printf "\tLocal users:\t%s\tUpdates:\t%s\t\t${REVERSE}${MAGENTA}\342\225\221   v 0.5 \342\225\221${NORMAL}\n" $users $update
+printf "\t\t\t\t\t\t\t\t${REVERSE}${MAGENTA}\342\225\232\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\235${NORMAL}\n"
+echo
+[ -f /etc/motd.tail ] && cat /etc/motd.tail || true
