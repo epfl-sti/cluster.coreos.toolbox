@@ -19,18 +19,18 @@ RUN sed -i "s/^deb\-src/\#deb\-src/" /etc/apt/sources.list
 # Use ch mirror
 RUN sed -i "s/archive.ubuntu.com/ch.archive.ubuntu.com/g" /etc/apt/sources.list
 # and add multiverse package in case we need something else
-RUN apt-get update && apt-get install -y software-properties-common curl
+RUN apt update && apt install -y software-properties-common curl
 RUN apt-add-repository multiverse
 
 # Ubuntu update + upgrades
-RUN apt-get -q update && apt-get -qy upgrade
+RUN apt -q update && apt -qy upgrade
 
 # Latest node version ('cause you know...)
 #  https://by-example.org/install-node-js-5-7-on-ubuntu-16-04-xenial-xerus-lts/
 RUN curl --silent --location https://deb.nodesource.com/setup_5.x | bash -
 
 # Install STIIT tools
-RUN apt-get install -y --no-install-recommends \
+RUN apt install -y --no-install-recommends \
     arping \
     build-essential \
     ca-certificates \
@@ -47,6 +47,7 @@ RUN apt-get install -y --no-install-recommends \
     iperf \
     ipmitool \
     iproute2 \
+    iputils-ping \
     jq \
     less \
     lsof \
