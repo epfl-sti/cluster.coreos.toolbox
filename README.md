@@ -16,7 +16,7 @@ core@c35 ~/cluster.coreos.toolbox $ docker run -it epflsti/toolbox bash
 .      \___ \ | |  | |_____| |  | |     | |/ _ \ / _ \| | '_ \ / _ \ \/ /      .
 .       ___) || |  | |_____| |  | |     | | (_) | (_) | | |_) | (_) >  <       .
 .      |____/ |_| |___|   |___| |_|     |_|\___/ \___/|_|_.__/ \___/_/\_\      .
-.                                       v0.1   <stiitdev@groupes.epfl.ch>      .
+.                                       v0.7   <stiitdev@groupes.epfl.ch>      .
 .                      https://github.com/epfl-sti/cluster.coreos.toolbox      .
 .                 https://hub.docker.com/r/epflsti/cluster.coreos.toolbox      .
 --------------------------------------------------------------------------------
