@@ -62,6 +62,7 @@ RUN apt install -y --no-install-recommends \
     openssl \
     rsync \
     sntop \
+    smartmontools \
     strace \
     stunnel \
     sysstat \
