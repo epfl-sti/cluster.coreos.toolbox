@@ -61,6 +61,7 @@ RUN apt install -y --no-install-recommends \
     nodejs \
     openssl \
     rsync \
+    silversearcher-ag \
     sntop \
     smartmontools \
     strace \
