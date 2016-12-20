@@ -35,7 +35,7 @@ RUN apt install -y --no-install-recommends \
     build-essential \
     ca-certificates \
     dmidecode \
-    docker.io \
+    ## docker.io \
     emacs \
     ethtool \
     facter \
@@ -75,8 +75,8 @@ RUN apt install -y --no-install-recommends \
     vnstat \
     wget
 
-# Node again nodejs <-> node
-#RUN ln -s /usr/bin/nodejs /usr/bin/node
+COPY docker_script /usr/local/bin/docker
+RUN chmod +x /usr/local/bin/docker
 
 WORKDIR /root/
 COPY bash_profile .bash_profile

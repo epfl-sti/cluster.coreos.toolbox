@@ -1,0 +1,2 @@
+#!/bin/sh
+LD_LIBRARY_PATH=/media/root/lib64 exec /media/root/lib/ld-linux-x86-64.so.2 /media/root/usr/bin/docker "$@"
