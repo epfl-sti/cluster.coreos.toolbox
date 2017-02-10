@@ -60,6 +60,7 @@ RUN apt install -y --no-install-recommends \
     nmap \
     nodejs \
     openssl \
+    psmisc \
     rsync \
     silversearcher-ag \
     sntop \
